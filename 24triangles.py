@@ -137,21 +137,35 @@ def cycle( x, pos = 0, rel = 0 ):
                 for d in cycle( x, pos + 1, i + 1 ):
                     yield d
 
+def orientation( j ):
+    """return the cycle number and original cube order"""
+    jdeque = collections.deque(j)
+    for q in range(len(j)):
+        
+        # cyclically permute
+        jdeque.rotate()
+
+        k = list( jdeque )
+        if k in puzzle:
+            return (q+1) % len(j), k
+
 def find_solutions( ):
     """find all solutions"""
     n = 0
     for p, x in enumerate( itertools.permutations( puzzle ) ):
         x = list(x)
-#       for i, j in enumerate( x ):
-#           if i > 3:
-#               d = j[1]
-#               j[1] = j[2]
-#               j[2] = d
-#               x[i] = j
         for c, s in enumerate( cycle( x ) ):
             if is_solution( s ):
                 n += 1
+
+                positions = []
+                for j in s:
+                    o = orientation( j )
+                    positions.append( ( puzzle.index( o[1] ), o[0] ) )
+
                 print 'Solution number = %d, permutation = %d, cycle = %d' %( n, p, c )
+                print 'Positions = %s' % positions
+
                 graph_solution( s )
     print n
 
