@@ -2,30 +2,16 @@
 
 import re
 import sys
+import time
 import itertools
+import logging
 import collections
 from optparse import OptionParser
 
+# number of expected puzzle arrangements 7! * 3^7 = 11022480
+Z = 11022480
+
 # define the triangles
-# orient the cube with triangles facing to the left, front, and down.
-# then read the triangle on front face using this
-#   A = |\  bottom left
-#   B = |/  top left
-#   C = \|  top right
-#   D = /|  bottom right
-
-# only A/C, C/A, B/B, D/D triangles can fit together
-# mathematically this can be expressed using the complex plane
-#       (0,i)
-#         A
-#
-#    B         C
-# (-1,0)     (0,1)
-#         D
-#       (0,-i)
-# notice that only A dot C = C dot A = B dot B = D dot D = 1
-# and any other combination does not equal one
-
 A = 1j
 B = 1
 C = -1j
@@ -47,10 +33,7 @@ f = [C,A,D]
 g = [D,A,B]
 h = [D,B,A]
 
-# define the home state of the cube
-# top       # bottom
-# a b       e f
-# d c       g h
+# define the home state of the puzzle
 puzzle = [a,b,c,d,e,f,g,h]
 
 def solution_string( x ):
@@ -88,10 +71,10 @@ def graph_solution( x ):
     if not isinstance( x, str ):
         x = solution_string( x )
 
-    print x
+    logger.info( x )
     x = [ i for i in re.split( r'(...)', x ) if i ]
 
-    print """
+    logger.info( """
       {0} {1}   {2} {3}    {4}   {5}
       {6}       {7}  {8} {9}   {10} {11}
 
@@ -102,7 +85,7 @@ def graph_solution( x ):
         x[0][1],                   x[1][0],  x[4][0], x[4][2], x[5][2], x[5][1],
         x[3][0],                   x[2][1],  x[7][1], x[7][2], x[6][2], x[6][0],
         x[3][2], x[3][1], x[2][0], x[2][2],           x[7][0], x[6][1]
-    )
+    ))
 
 def cycle( x, pos = 0, rel = 0 ):
     """
@@ -150,11 +133,27 @@ def orientation( j ):
             return (q+1) % len(j), k
 
 def find_solutions( ):
-    """find all solutions"""
-    n = 0
-    for p, x in enumerate( itertools.permutations( puzzle ) ):
+    """
+    find all solutions
+    this can be accomplished by holding the 0 corner in its home position
+    and permuting and cycling the other cubes around it, which has the
+    advantage of removing rotationally equivalent solutions
+    """
+    N = n = 0
+    st = time.time()
+
+    logger.info( 'Finding solutions...' )
+
+    print '-' * 80,
+    # permute the last 7 pieces
+    for p, x in enumerate( itertools.permutations( puzzle[1:] ) ):
         x = list(x)
-        for c, s in enumerate( cycle( x ) ):
+        # insert the home cube
+        x.insert(0,puzzle[0])
+
+        # cycle the last 7 pieces
+        for c, s in enumerate( cycle( x, pos = 1, rel = 1 ) ):
+            N += 1
             if is_solution( s ):
                 n += 1
 
@@ -163,11 +162,20 @@ def find_solutions( ):
                     o = orientation( j )
                     positions.append( ( puzzle.index( o[1] ), o[0] ) )
 
-                print 'Solution number = %d, permutation = %d, cycle = %d' %( n, p, c )
-                print 'Positions = %s' % positions
+                logger.info( 'Solution number = %d, permutation = %d, cycle = %d' %( n, p, c ) )
+                logger.info( 'Positions = %s' % positions )
 
                 graph_solution( s )
-    print n
+
+            if N % 100000 == 0:
+                print '\r' + ( '=' * int(N*80/Z) ) + ( '-' * int( (Z-N)*80/Z) ),
+
+    logger.info( 'Searched %d puzzle arrangements and found %d solutions in %d seconds' \
+        % ( N, n, time.time() - st ) )
+    
+    # N should match Z
+    if Z != N:
+        logger.error( 'Unexpected number of puzzle arrangements, %d, expected %d' % ( N, Z ) )
 
 ################################################################################
 # main
@@ -184,6 +192,13 @@ if __name__ == '__main__':
                       help="graph a solution in the form of DBCBDCDBABDABCACBADACADC" )
 
     options, args = parser.parse_args()
+
+    # setup logging
+    logging.basicConfig( filename = 'solutions.log', level = logging.INFO, filemode = 'w',
+                         format='%(asctime)s - %(name)s (%(levelname)s): %(message)s',
+                         datefmt='%m/%d/%Y %H:%M:%S')
+    logger = logging.getLogger('24triangles')
+    print 'Logging output to solutions.log'
 
     if options.run:
         find_solutions()

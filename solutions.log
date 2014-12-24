@@ -1,0 +1,102 @@
+12/24/2014 08:34:09 - 24triangles (INFO): Finding solutions...
+12/24/2014 08:34:47 - 24triangles (INFO): Solution number = 1, permutation = 849, cycle = 1472
+12/24/2014 08:34:47 - 24triangles (INFO): Positions = [(0, 0), (2, 0), (3, 2), (1, 2), (5, 2), (6, 1), (7, 1), (4, 0)]
+12/24/2014 08:34:47 - 24triangles (INFO): ABCBCDCBDBACDCAABDBADCDA
+12/24/2014 08:34:47 - 24triangles (INFO): 
+      C A   C D    C   A
+      B       B  D A   D B
+
+      B       B  D A   D B
+      C A   C D    C   A
+    
+12/24/2014 08:35:10 - 24triangles (INFO): Solution number = 2, permutation = 1360, cycle = 2117
+12/24/2014 08:35:10 - 24triangles (INFO): Positions = [(0, 0), (2, 0), (7, 0), (3, 0), (5, 2), (6, 1), (1, 2), (4, 0)]
+12/24/2014 08:35:10 - 24triangles (INFO): ABCBCDDBABDCDCAABDBACCDA
+12/24/2014 08:35:10 - 24triangles (INFO): 
+      C A   C D    C   A
+      B       B  D A   D B
+
+      B       B  D A   C B
+      C D   D A    C   A
+    
+12/24/2014 08:35:19 - 24triangles (INFO): Solution number = 3, permutation = 1571, cycle = 980
+12/24/2014 08:35:19 - 24triangles (INFO): Positions = [(0, 0), (3, 1), (2, 1), (1, 2), (5, 2), (7, 2), (6, 0), (4, 0)]
+12/24/2014 08:35:19 - 24triangles (INFO): ABCDCBCDBBACDCAADBDABCDA
+12/24/2014 08:35:19 - 24triangles (INFO): 
+      C A   C B    C   A
+      B       D  D A   B D
+
+      B       D  D A   B D
+      C A   C B    C   A
+    
+12/24/2014 08:35:24 - 24triangles (INFO): Solution number = 4, permutation = 1690, cycle = 1215
+12/24/2014 08:35:24 - 24triangles (INFO): Positions = [(0, 0), (3, 1), (4, 0), (1, 2), (5, 2), (7, 2), (2, 2), (6, 2)]
+12/24/2014 08:35:24 - 24triangles (INFO): ABCDCBCDABACDCAADBDBCBDA
+12/24/2014 08:35:24 - 24triangles (INFO): 
+      C A   C B    C   A
+      B       D  D A   B D
+
+      B       D  D A   C D
+      C A   C A    B   B
+    
+12/24/2014 08:35:31 - 24triangles (INFO): Solution number = 5, permutation = 1832, cycle = 1210
+12/24/2014 08:35:31 - 24triangles (INFO): Positions = [(0, 0), (3, 1), (5, 1), (2, 0), (4, 0), (6, 0), (1, 1), (7, 1)]
+12/24/2014 08:35:31 - 24triangles (INFO): ABCDCBADCBCDCDADABCBABAD
+12/24/2014 08:35:31 - 24triangles (INFO): 
+      C A   C B    D   D
+      B       D  C A   B A
+
+      B       D  A D   A C
+      D C   A C    B   B
+    
+12/24/2014 08:36:00 - 24triangles (INFO): Solution number = 6, permutation = 2492, cycle = 322
+12/24/2014 08:36:00 - 24triangles (INFO): Positions = [(0, 0), (4, 2), (3, 1), (6, 2), (7, 0), (2, 0), (1, 0), (5, 1)]
+12/24/2014 08:36:00 - 24triangles (INFO): ABCACDDCBBDADBABCDACBADC
+12/24/2014 08:36:00 - 24triangles (INFO): 
+      C A   C D    B   B
+      B       A  D A   D C
+
+      B       C  D C   B A
+      A D   D B    A   C
+    
+12/24/2014 08:36:24 - 24triangles (INFO): Solution number = 7, permutation = 3019, cycle = 323
+12/24/2014 08:36:24 - 24triangles (INFO): Positions = [(0, 0), (5, 2), (2, 1), (1, 2), (7, 0), (3, 0), (6, 0), (4, 0)]
+12/24/2014 08:36:24 - 24triangles (INFO): ABCDCACDBBACDBABDCDABCDA
+12/24/2014 08:36:24 - 24triangles (INFO): 
+      C A   C A    B   B
+      B       D  D A   C D
+
+      B       D  D A   B D
+      C A   C B    C   A
+    
+12/24/2014 08:36:34 - 24triangles (INFO): Solution number = 8, permutation = 3252, cycle = 494
+12/24/2014 08:36:34 - 24triangles (INFO): Positions = [(0, 0), (5, 2), (4, 0), (1, 2), (6, 2), (2, 2), (3, 0), (7, 0)]
+12/24/2014 08:36:34 - 24triangles (INFO): ABCDCACDABACBDADBCBDCDBA
+12/24/2014 08:36:34 - 24triangles (INFO): 
+      C A   C A    D   D
+      B       D  B A   C B
+
+      B       D  B A   C B
+      C A   C A    D   D
+    
+12/24/2014 08:36:35 - 24triangles (INFO): Solution number = 9, permutation = 3260, cycle = 558
+12/24/2014 08:36:35 - 24triangles (INFO): Positions = [(0, 0), (5, 2), (4, 0), (1, 2), (7, 0), (3, 0), (2, 2), (6, 2)]
+12/24/2014 08:36:35 - 24triangles (INFO): ABCDCACDABACDBABDCDBCBDA
+12/24/2014 08:36:35 - 24triangles (INFO): 
+      C A   C A    B   B
+      B       D  D A   C D
+
+      B       D  D A   C D
+      C A   C A    B   B
+    
+12/24/2014 08:36:39 - 24triangles (INFO): Solution number = 10, permutation = 3356, cycle = 567
+12/24/2014 08:36:39 - 24triangles (INFO): Positions = [(0, 0), (5, 2), (4, 0), (7, 1), (6, 2), (2, 2), (1, 2), (3, 2)]
+12/24/2014 08:36:39 - 24triangles (INFO): ABCDCACDABADBDADBCBACCBD
+12/24/2014 08:36:39 - 24triangles (INFO): 
+      C A   C A    D   D
+      B       D  B A   C B
+
+      B       D  B D   C B
+      D A   C A    C   A
+    
+12/24/2014 08:37:54 - 24triangles (INFO): Searched 11022480 puzzle arrangements and found 10 solutions in 225 seconds
