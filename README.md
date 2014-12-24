@@ -4,15 +4,15 @@
 Script to find puzzle solutions for the 24 Triangles puzzle described here
 http://mypuzzlecollection.blogspot.com/2012/07/24-triangles.html
 
-# define the triangles
+## define the triangles
 orient the cube with triangles facing to the left, front, and down.
 then read the triangle on front face using this
-  A = |\  bottom left
-  B = |/  top left
-  C = \|  top right
-  D = /|  bottom right
+   A = |\  bottom left
+   B = |/  top left
+   C = \|  top right
+   D = /|  bottom right
 
-# define the 8 unique cubes
+## define the 8 unique cubes
     there are 8 cubes because each cube does not have repeated triangles
     4 * 3 * 2 / 3 = 8 ( divide by 3 to remove cyclically redundant cubes )
 a = [A,B,C]
@@ -24,12 +24,12 @@ f = [C,A,D]
 g = [D,A,B]
 h = [D,B,A]
 
-# define the default puzzle layout
-  top       bottom
-  a b       e f
-  d c       h g
+## define the default puzzle layout
+   top       bottom
+   a b       e f
+   d c       h g
 
-# triangle combinations
+## triangle combinations
 only A/C, C/A, B/B, D/D triangles can fit together
 mathematically this can be expressed using the complex plane
       (0,i)
